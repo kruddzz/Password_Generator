@@ -23,14 +23,28 @@ var generateBtn = document.querySelector("#generate");
 
 // arrays
 
+
 // Vairiables
 var confirmLength = "";
+var confirmLowerCase;
+var confirmUppercase;
+var confirmNumeric;
+var confirmSpecial;
 
 // prompt to confim how many characters the user would like
 function generatePassword() {
   var confirmLength = (prompt("How many characters would you like your password to contain? "));
   
+  // Loop if answer is not between 8 and 128
+  // while(loops through a block of code as long as a specific condition is true)
+  while(confirmLength <= 7 || confirmLength >= 51) {
+    alert("Password length must be between 8-50 characters Try again");
+    var confirmLength = (prompt("How many characters would you like your password to contain?"));
 }
+
+ // repeats back to pass word length question
+ alert(`Your password will have ${confirmLength} characters`);
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
