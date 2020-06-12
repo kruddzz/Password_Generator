@@ -24,8 +24,13 @@ var generateBtn = document.querySelector("#generate");
 // arrays
 
 // Vairiables
+var confirmLength = "";
 
-
+// prompt to confim how many characters the user would like
+function generatePassword() {
+  var confirmLength = (prompt("How many characters would you like your password to contain? "));
+  
+}
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
