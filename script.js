@@ -18,13 +18,14 @@
     // if not meat needs to loop back to first prompt
   // 4) Password is generated
       // Password isa displayed in an alert or on the page
-// Assignment Code
+
+      // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
 // arrays
 var number = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 // look up special character array
-var specialChar = ["!", """, "#", "$","%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\", "]", "^", "_", "`", "{", "|", "}", "~" ];
+var specialChar = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_","=", "+"]; 
 var alphaLower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var alphaUpper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
@@ -41,13 +42,22 @@ function generatePassword() {
   
   // Loop if answer is not between 8 and 128
   // while(loops through a block of code as long as a specific condition is true)
-  while(confirmLength <= 7 || confirmLength >= 51) {
-    alert("Password length must be between 8-50 characters Try again");
+  while(confirmLength < 8 || confirmLength > 128) {
+    alert("Password length must be between 8-128 characters");
     var confirmLength = (prompt("How many characters would you like your password to contain?"));
 }
 
  // repeats back to pass word length question
  alert(`Your password will have ${confirmLength} characters`);
+
+// password options  
+var confirmLowerCase = confirm("Click OK if you would like to include lowercase characters");
+var confirmUpperCase = confirm("Click OK if you would like to include uppercase characters");
+var confirmNumeric = confirm("Click OK if you would like to include numeric characters");
+var confirmSpecial = confirm("Click OK if you would like to include special characters");
+
+
+}
 
 // Write password to the #password input
 function writePassword() {
@@ -56,7 +66,8 @@ function writePassword() {
 
   passwordText.value = password;
 
-}
 
+generatePassword();
+}
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
