@@ -33,10 +33,10 @@ var specialChar = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_","=
 // Vairiables
 var confirmLength = "";
 var confirmLowerCase;
-var confirmUppercase;
+var confirmUpperCase;
 var confirmNumeric;
 var confirmSpecial;
-var charSet
+
 
 // prompt to confim how many characters the user would like
 function generatePassword() {
@@ -58,7 +58,7 @@ var confirmUpperCase = confirm("Click OK if you would like to include uppercase 
 var confirmNumeric = confirm("Click OK if you would like to include numeric characters");
 var confirmSpecial = confirm("Click OK if you would like to include special characters");
 // loop if no option is selected
-while(confirmUpperCase === false && confirmLowerCase === false && confirmSpecial === false && confirmNumeric === false) {
+if(confirmUpperCase === false && confirmLowerCase === false && confirmSpecial === false && confirmNumeric === false) {
   alert("You must choose at least one parameter");
   var confirmLowerCase = confirm("Click OK if you would like to include lowercase characters");
   var confirmUpperCase = confirm("Click OK if you would like to include uppercase characters");
@@ -67,56 +67,24 @@ while(confirmUpperCase === false && confirmLowerCase === false && confirmSpecial
 }
 
 // assign an action to password options
-// Else if for 4 positive options
-else if (confirmLowercase && confirmUpperCase && confirmNumeric && confirmSpecial) {
+var passwordCharacters = []
+      
+if (confirmLowerCase) {
+  passwordCharacters = passwordCharacters.concat(lowercase)
+}
 
-  choices = lowercase.concat(uppercase, number, specialChar);
+if (confirmUpperCase) {
+  passwordCharacters = passwordCharacters.concat(uppercase)
 }
-// Else if for 3 positive options
-else if (confirmLowerCase && confirmUpperCase && confirmNumeric) {
-  choices = lowercase.concat(uppercase, number);
+  
+if (confirmNumeric) {
+  passwordCharacters = passwordCharacters.concat(number)
 }
-else if (confirmLowerCase && confirmUpperCase && confirmSpecial) {
-  choices = lowercase.concat(uppercase, specialChar);
-}
-else if (confirmLowerCase && confirmNumeric && confirmSpecial) {
-  choices = lowercase.concat(number, specialChar);
-}
-else if (confirmUpperCase && confirmNumeric && confirmSpecial) {
-  choices = uppercase.concat(number, specialChar);
-}
- // Else if for 2 positive options 
- else if (confirmLowerCase && confirmUpperCase) {
-  choices = lowercase.concat(uppercase);
 
-} else if (confirmLowerCase && confirmNumeric) {
-  choices = lowercase.concat(number);
+if (confirmSpecial) {
+  passwordCharacters = passwordCharacters.concat(specialChar)
+}
 
-} else if (confirmLowerCase && confirmSpecial) {
-  choices = lowercase.concat(specialChar);
-}
-else if (confirmUpperCase && confirmNumeric) {
-  choices = uppercase.concat(number);
-
-} else if (confirmUpperCase && confirmSpecial) {
-  choices = uppercase.concat(specialChar);
-
-} else if (confirmNumeric && confirmSpecial) {
-  choices = number.concat(specialChar);
-}
-// Else if for 1 positive option
-else if (confirmLowerCase) {
-  choices = lowercase;
-}
-else if (confirmUpperCase) {
-  choices = uppercase;
-}
-else if (confirmNumeric) {
-  choices = number;
-}
-else if (confirmSpecial) {
-  choices = specialChar;
-}
 
 
 
@@ -126,9 +94,11 @@ else if (confirmSpecial) {
      
      for (var i = 0; i < confirmLength; i++) {
        randomPassword = randomPassword + passwordCharacters[Math.floor(Math.random() * passwordCharacters.length)];
-       console.log(randomPassword)
-     }
-     return randomPassword;
+       console.log(randomPassword);
+      }
+      return randomPassword;
+    
+    
 }
 
 
@@ -138,6 +108,8 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
+
+
 
 // on page load
 generatePassword();
