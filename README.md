@@ -23,3 +23,6 @@ THEN the password is either displayed in an alert or written to the page
 
 https://kruddzz.github.io/password_generator/
 
+![screenshot](images/screenshot.png)
+
+
