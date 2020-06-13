@@ -85,7 +85,7 @@ if (confirmSpecial) {
   passwordCharacters = passwordCharacters.concat(specialChar)
 }
 
-
+console.log(passwordCharacters)
 
 
 
@@ -95,7 +95,7 @@ if (confirmSpecial) {
      for (var i = 0; i < confirmLength; i++) {
        randomPassword = randomPassword + passwordCharacters[Math.floor(Math.random() * passwordCharacters.length)];
        console.log(randomPassword);
-      }
+      }33
       return randomPassword;
     
     
@@ -109,10 +109,9 @@ function writePassword() {
 
   passwordText.value = password;
 
-
-
-// on page load
-generatePassword();
 }
+
+
+
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
