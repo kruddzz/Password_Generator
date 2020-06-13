@@ -85,7 +85,38 @@ else if (confirmLowerCase && confirmNumeric && confirmSpecial) {
 else if (confirmUpperCase && confirmNumeric && confirmSpecial) {
   choices = uppercase.concat(number, specialChar);
 }
+ // Else if for 2 positive options 
+ else if (confirmLowerCase && confirmUpperCase) {
+  choices = lowercase.concat(uppercase);
 
+} else if (confirmLowerCase && confirmNumeric) {
+  choices = lowercase.concat(number);
+
+} else if (confirmLowerCase && confirmSpecial) {
+  choices = lowercase.concat(specialChar);
+}
+else if (confirmUpperCase && confirmNumeric) {
+  choices = uppercase.concat(number);
+
+} else if (confirmUpperCase && confirmSpecial) {
+  choices = uppercase.concat(specialChar);
+
+} else if (confirmNumeric && confirmSpecial) {
+  choices = number.concat(specialChar);
+}
+// Else if for 1 positive option
+else if (confirmLowerCase) {
+  choices = lowercase;
+}
+else if (confirmUpperCase) {
+  choices = uppercase;
+}
+else if (confirmNumeric) {
+  choices = number;
+}
+else if (confirmSpecial) {
+  choices = specialChar;
+}
 
 
 
